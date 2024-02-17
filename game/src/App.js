@@ -1,6 +1,5 @@
 import React, { useState, useEffect }  from 'react';
 import './App.css'; // Make sure to import the Pico CSS in this file or in index.js
-import './index.css';
 const App = () => {
     const [backgroundClass, setBackgroundClass] = useState('');
 
