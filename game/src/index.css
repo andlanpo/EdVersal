@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.bright-blue {
+  background-color: #007bff; /* Example bright blue */
+}
+
+.bright-red {
+  background-color: #dc3545; /* Example bright red */
+}
+
+.bright-green {
+  background-color: #28a745; /* Example bright green */
+}
