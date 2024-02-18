@@ -14,9 +14,9 @@ def mean_pooling(model_output, attention_mask):
 
 
 # Read the dataframe
-dataframe = pd.read_csv('openstax_biology_2e.csv')
-dataframe = dataframe[dataframe['p_id'].str.startswith('fs-').fillna(False)]
-paragraphs = dataframe['p_content'].tolist()
+dataframe = pd.read_csv('/Users/andrewlanpouthakoun/Library/Mobile Documents/com~apple~CloudDocs/Stanford/Quizzem/Training/definitions_spreadsheet.csv')
+paragraphs = dataframe['Definition'].tolist()
+print(paragraphs[0])
 
 # Load model from HuggingFace Hub
 tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')
@@ -26,7 +26,8 @@ model = AutoModel.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')
 paragraph_embeddings = []
 
 for index, paragraph in enumerate(paragraphs):
-    print(index)
+    #print(index)
+    
     if isinstance(paragraph, str) and len(paragraph) > 10:
         encoded_input = tokenizer(paragraph, padding=True, truncation=True, return_tensors='pt')
         with torch.no_grad():
@@ -46,11 +47,10 @@ print("Writing index")
 # Save the index to a file
 faiss.write_index(index, 'paragraph_index.faiss')
 
-# Load the index from the file
 index = faiss.read_index('paragraph_index.faiss')
 
 # Perform a query
-query = 'Why are plasma membranes arranged as a bilayer rather than a monolayer?'
+query = 'What is recursion?'
 
 # Tokenize and compute embedding for the query
 encoded_query = tokenizer(query, padding=True, truncation=True, return_tensors='pt')
@@ -59,9 +59,12 @@ with torch.no_grad():
 query_embedding = mean_pooling(query_output, encoded_query['attention_mask'])
 normalized_query_embedding = F.normalize(query_embedding, p=2, dim=1)
 
+# Ensure query_embedding is a 2D array before search
+normalized_query_embedding_2d = np.expand_dims(normalized_query_embedding.squeeze().numpy(), axis=0)
+
 # Perform a search using Faiss
 k = 5  # Number of nearest neighbors to retrieve
-distances, indices = index.search(normalized_query_embedding.squeeze().numpy(), k)
+distances, indices = index.search(normalized_query_embedding_2d, k)
 
 # Get the relevant paragraphs
 relevant_paragraphs = [paragraphs[i] for i in indices[0]]
