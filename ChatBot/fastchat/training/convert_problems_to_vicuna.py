@@ -122,25 +122,25 @@ def get_convs(problem):
     return conversation_blocks
 
 
-def produce_prob_json():
-    df = pd.read_csv("../../datasets/bio-problems-learning_objs.csv")
+def process_json_file(filepath):
+    # Read the JSON file
+    with open(filepath, 'r') as file:
+        data = json.load(file)
 
     arr = []
-    for index, row in df.iterrows():
+    for index, problem_info in enumerate(data):
         try:
-            print(index)
-            prob_info = json.loads(row['problems'])
-
-            data = dict()
-            data['id'] = "identity_" + str(index + 1000)
-            data['conversations'] = get_convs(problem=prob_info)
-            arr.append(data)
+            data_entry = dict()
+            data_entry['id'] = "identity_" + str(index + 1000)
+            # Assuming get_convs is a function that processes a problem info and returns conversations
+            data_entry['conversations'] = get_convs(problem=problem_info)
+            arr.append(data_entry)
         except json.JSONDecodeError as e:
             print(f"{index}: Error decoding JSON")
-        except KeyError:
-            print(f"{index}: Key not found in the dictionary.")
+        except KeyError as e:
+            print(f"{index}: Key not found in the dictionary: {e}")
 
-    return  arr
+    return arr
 
 tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')
 model = AutoModel.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')
@@ -150,4 +150,3 @@ if __name__ == '__main__':
 
     with open('b.json', "w") as f:
         json.dump(arr, f, indent=4)
-

@@ -13,7 +13,40 @@ monster_client = client(api_key)
 
 # Load tokenizer and model
 # This is hypothetical and depends on LLaMA's availability and your setup
+prompt  = """Generate a hard, challenging problem which can be broken down into subproblems for the following topic on {section_name}. For the generated main problem for this topic, also output the following:
+1) Facts necessary to answer it,
+2) Subproblems that the main problem can be broken down into, and
+3) The final answer.
+For each subproblem, generate a hint, one incorrect student response to the subproblem, and corresponding feedback to the student. Put all the output in the following JSON structure:
+{{
+    "Problem": "..",
+    "SubProblems": [
+        {{
+            "Question": "..",
+            "Answer": "..",
+            "Hint": "..",
+            "Incorrect Response": "..",
+            "Feedback": ".."
+        }}
+    ],
+    "Facts": [
+        "..",
+        ".."
+    ],
+    "Solution": ".."
+}}""".format(section_name="recursion")
 model = 'llama2-7b-chat'
+model = 'llama2-7b-chat';
+input_data = {
+  'prompt': prompt,
+  'top_k': 10,
+  'top_p': 0.9,
+  'temp': 0.9,
+  'max_length': 1000,
+  'beam_size': 1,
+  'system_prompt': "Your goal is to create a mock conversation between Student and a Tutorbot, an AI-powered chatbot designed to help Student's with a question:",
+  'repetition_penalty': 1.2,
+};
 tokenizer = AutoTokenizer.from_pretrained(model)
 
 
@@ -55,37 +88,12 @@ def generate_text_with_context(topic_name, context):
     """
     Generate text using LLaMA model given a topic name and context.
     """
-    prompt = prompt = """Generate a hard, challenging problem which can be broken down into subproblems for the following topic on {section_name}. For the generated main problem for this topic, also output the following:
-1) Facts necessary to answer it,
-2) Subproblems that the main problem can be broken down into, and
-3) The final answer.
-For each subproblem, generate a hint, one incorrect student response to the subproblem, and corresponding feedback to the student. Put all the output in the following JSON structure:
-{{
-    "Problem": "..",
-    "SubProblems": [
-        {{
-            "Question": "..",
-            "Answer": "..",
-            "Hint": "..",
-            "Incorrect Response": "..",
-            "Feedback": ".."
-        }}
-    ],
-    "Facts": [
-        "..",
-        ".."
-    ],
-    "Solution": ".."
-}}""".format(section_name=topic_name)
+    
 
     inputs = tokenizer(prompt, return_tensors="pt", max_length=1024, truncation=True)
     
     # Generate response
-    output_sequences = monster_client.generate(model,
-        input_ids=inputs['input_ids'],
-        attention_mask=inputs['attention_mask'],
-        max_length=1024,  # Adjust as necessary
-    )
+    output_sequences = monster_client.generate(model, input_data)
     
     # Decode generated sequence to text
     generated_text = tokenizer.decode(output_sequences[0], skip_special_tokens=True)
