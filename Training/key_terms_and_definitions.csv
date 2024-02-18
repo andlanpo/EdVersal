@@ -1,0 +1,2715 @@
+Term,Definition
+ADT,.
+ADT,", 196 
+Aesop, 86 
+AirlineGraph class, 825 
+al-Khowârizmî, 58 
+Alcott, Louisa May, 737 
+algebra, 58 
+algorithm, 58 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1026     Index 
+
+algorithm library, 905 
+Alice in Wonderland, 2 
+allocated size, 498 
+allocation, 500 
+alphanumeric, 137 
+ambiguity, 846 
+amortized analysis, 559 
+anagram, 364 
+analysis of algorithms, 430 
+ancestor, 691 
+application programming interface, 832 
+arc, 768 
+area code, 258 
+argument, 57 
+Ariadne, 390 
+ARPANET, 18, 821 
+array, 494 
+array capacity, 533 
+array selection, 496 
+array-based editor, 579 
+ASCII, 22 
+assignment operator, 30 
+assignment statement, 31 
+associative array, 232 
+associativity, 28 
+astronomical unit, 345 
+at function, 130 
+AT&T Bell Laboratories, 5 
+atan function, 61 
+atan2 function, 61 
+atomic type, 19 
+automatic allocation, 516 
+Average, 438 
+average-case complexity, 440 
+AVL tree, 708 
+axis of rotation, 710 
+
+Bachmann, Paul, 435 
+backtracking algorithm, 390 
+Backus, John, 4, 862 
+Backus-Naur Form (BNF), 862 
+balance factor, 709 
+
+balanced tree, 706 
+base type, 198, 485 
+BASIC language, 884 
+basis, 460 
+Beacons of Gondor, 519 
+begin method, 887 
+Bernstein, Daniel J."
+Recursion,"315 
+
+7."
+recursion,"316 
+The factorial function  318 
+7."
+recursion,"336 
+7."
+recursion,"368 
+
+  Summary  375 
+  Review questions  375 
+  Exercises  376 
+
+9 
+
+Backtracking Algorithms 
+
+389 
+
+9."
+Recursion,"to the rescue  443 
+10."
+Recursion,"And often enough, our faith beforehand in a certain result is the 
+only thing that makes the result come true."
+Recursion,"Most algorithmic strategies used to solve programming problems have counterparts 
+outside  the  domain  of  computing."
+recursion,",  is  defined  as  any 
+solution technique in which large problems are solved by reducing them to smaller 
+problems of the same form."
+recursion,"special is that the subproblems in a 
+recursive solution have the same form as the original problem."
+recursion,"is  not  a  concept  that 
+comes up in day-to-day life."
+recursion,can  be  difficult.
+recursion,seem  as  natural  as  all  the  other  control  structures.
+recursion,is  definitely  worth  the  effort.
+recursion,is so powerful that it at times seems almost magical.
+recursion,"often  makes  it  possible  to  write  complex  programs  in 
+simple and profoundly elegant ways."
+recursion,"To  gain  a  better  sense  of  what  recursion  is,  let’s  imagine  that  you  have  been 
+appointed as the funding coordinator for a large charitable organization that is long 
+on volunteers and short on cash."
+recursion,"317 
+
+has a reasonable supply of volunteers."
+recursion,.
+Recursion,"if (test for simple case) { 
+   Compute a simple solution without using recursion."
+recursion,.
+recursion,", it 
+gives little insight into how recursion is used in practice, mostly because the steps 
+that make up the solution, such as finding 10 volunteers and collecting money, are 
+not easily represented in a C++ program."
+recursion,", you need to consider problems that fit more easily into the programming 
+domain."
+recursion,"is  to  start  with  simple 
+mathematical  functions  in  which  the  recursive  structure  follows  directly  from  the 
+statement of the problem and is therefore easy to see."
+recursion,.
+Recursion,You can then use the same process to define (n – 1)! in terms of (n – 2)!.
+recursion,"for  the  first  time,  the  recursive  implementation  of  fact  seems  to 
+leave something out."
+Recursion,There  are  now  two  frames  labeled  fact.
+Recursion,"At this stage, the program returns 3 × 2 to the previous level, so that the frame for 
+the initial call to fact looks like this: 
+
+The final step in the calculation process consists of calculating 4 × 6 and returning 
+the value 24 to the main program."
+recursion,in practical applications.
+Recursion,means  that  a  new  pair  of  rabbits  is  born.
+recursion,"is to break problems down into simpler ones that can be solved by calls to 
+exactly the same function."
+Recursion,"The Fibonacci function 
+
+ 
+7."
+Recursion,"Recursion is not to blame 
+
+On  discovering  that  the  implementation  of  fib(n)  given  in  Figure 7-1  is  highly 
+inefficient, many people are tempted to point their finger at recursion as the culprit."
+recursion,per  se  but  rather  the  way  in  which  recursion  is  used.
+recursion,",  the  key  to  finding  a  more  efficient 
+solution lies in adopting a more general approach."
+recursion,"consists  of  the  terms  t0  and  t1,  whose  values  are  part  of  the 
+definition  of  the  sequence."
+recursion,to determine this result.
+Recursion,"int additiveSequence(int n, int t0, int t1) { 
+   if (n == 0) return t0; 
+   if (n == 1) return t1; 
+   return additiveSequence(n - 1, t1, t0 + t1); 
+} 
+
+If you trace through the steps in the calculation of fib(5) using this technique, 
+you  will  discover  that  the  calculation  involves  none  of  the  redundant  computation 
+that  plagued  the  earlier  recursive  formulation."
+recursion,is applicable only to mathematical functions.
+recursion,"to  any  problem  that  can  be  decomposed  into 
+simpler  problems  of  the  same  form."
+recursion,", focusing on those that are less mathematical in nature."
+recursion,in a simple string application.
+Recursion,•  Calculate the length of the argument only once.
+Recursion,"If  neither  of  these  cases  applies,  the  implementation  can  simplify  the  problem  by 
+choosing  the  appropriate  half  of  the  array  and  calling  itself  recursively  with  an 
+updated set of search limits."
+recursion,"In  each  of  the  examples  considered  so  far,  the  recursive  functions  have  called 
+themselves  directly,  in  the  sense  that  the  body  of  the  function  contains  a  call  to 
+itself."
+recursion,is  actually  somewhat  broader.
+recursion,"337 
+
+recursive,  a  function  must  call  itself  at  some  point  during  its  evaluation."
+recursion,is called mutual recursion.
+recursion,to  test  whether  a  number  is  even  or  odd.
+Recursion,"The  code  in  Figure 7-6  ensures  that  condition  by  having  isEven  and  isOdd  take 
+arguments of type unsigned, which C++ uses to represent an integer that can never 
+be less than zero."
+recursion,is  not  an  easy  concept  to  grasp.
+recursion,",  however,  this  balance  seems  to  change."
+recursion,",  the  process  of  writing  and  debugging 
+recursive programs will become more natural."
+recursion,"to 
+work, the problems have to get simpler as you go along."
+recursion,.
+Recursion,decomposition.
+recursion,"to  break  down  a 
+problem,  it  is  essential  that  the  subproblems  be  of  the  same  form."
+recursion,", a powerful programming strategy 
+in  which  complex  problems  are  broken  down  into  simpler  problems  of  the  same 
+form."
+Recursion,"is  similar  to  stepwise  refinement  in  that  both  strategies  consist  of 
+breaking  a  problem  down  into  simpler  problems  that  are  easier  to  solve."
+recursion,"is  that  the  simpler  subproblems  must 
+have the same form as the original."
+recursion,", you must be able to identify simple cases for which the answer 
+is easily determined and a recursive decomposition that allows you to break any 
+complex instance of the problem into simpler problems of the same type."
+recursion,.
+recursion,"effectively, you must learn to limit your analysis to 
+a single level of the recursive decomposition and to rely on the correctness of all 
+simpler recursive calls without tracing through the entire computation."
+recursion,itself is not the problem.
+Recursion,"need not consist of a single function that calls itself but may instead 
+involve  several  functions  that  call  each  other  in  a  cyclical  pattern."
+Recursion,that involves more than one function is called mutual recursion.
+recursion,effectively requires practice and more practice.
+recursion,"will turn out to 
+be one of the most powerful techniques in your programming repertoire, that time 
+will be well spent."
+Recursion,"Review questions 
+
+1."
+recursion,"and traditional stepwise 
+
+refinement? 
+
+3."
+recursion,"to  make  sense  as  a 
+
+solution strategy? 
+
+6."
+recursion,"? 
+
+17."
+Recursion,"bool isOdd(unsigned int n) { 
+   if (n == 1) { 
+      return true; 
+   } else { 
+      return isEven(n - 1); 
+   } 
+} 
+
+Give an example that shows how this implementation can fail."
+Recursion,"function  calls  made  during  the  evaluation  of  the  corresponding  Fibonacci 
+calculation."
+Recursion,"Pascal’s Triangle to write a recursive implementation of the c(n, k) function 
+that uses no loops, no multiplication, and no calls to fact."
+recursion,"is 
+not particularly hard."
+recursion,",  relying  instead  on  more  familiar  iterative 
+techniques,  you  will  find  them  quite  difficult  to  solve."
+recursion,", a few lines of code are sufficient for each task."
+recursion,to computer science students.
+recursion,.
+recursion,"and  has  become—much  like  the  “hello, world” 
+program in Chapter 1—part of the cultural heritage that computer scientists share."
+recursion,"to  the  Towers  of  Hanoi  problem,  you  must  first  frame 
+the  problem  in  more  general  terms."
+recursion,",  you 
+must first make sure that the problem meets the following conditions: 
+
+1."
+recursion,"to  decompose  a  problem, 
+you must make sure that the new problems are identical in form to the original."
+recursion,"for the first time, the 
+solution seems so short that you feel sure there must be something missing."
+recursion,",  its  effectiveness  as  an  example  is  compromised  by  its  lack  of  any 
+practical  application."
+recursion,"are  like  the 
+Towers  of  Hanoi,  it’s  easy  to  conclude  that  recursion  is  useful  only  for  solving 
+abstract puzzles."
+recursion,", it is easy to 
+look  at  a  recursive  solution  and  believe  that  you  could  have  generated  it  on  your 
+own."
+recursion,"Some of the most exciting applications of recursion use graphics to create intricate 
+pictures  in  which  a  particular  motif  is  repeated  at  many  different  scales."
+recursion,"that  make 
+use of the GWindow class introduced briefly at the end of Chapter 2."
+recursion,",  and  you  can  skip  it  if  you  don’t  have 
+ready  access  to  the  graphics  library."
+recursion,"seem a lot more powerful, not to mention more fun."
+recursion,"369 
+
+How would you go about designing a general strategy to create such a figure using 
+the graphics library? 
+
+To  understand  how  a  program  might  produce  such  a  figure,  it  helps  to  think 
+about the process as one of successive decomposition."
+recursion,"371 
+
+Mondrian."
+recursion,"373 
+
+Because figures like the Koch snowflake are much easier to draw by computer 
+than by hand, it makes sense to write a program that uses the facilities exported by 
+the graphics."
+recursion,were introduced in Chapter 7.
+recursion,"is a tool for solving 
+hard  problems."
+recursion,"to a programming problem, you have to 
+devise a strategy that transforms the problem into simpler instances of the same 
+problem."
+Recursion,is not magical.
+recursion,in Mondrian.
+recursion,.
+recursion,"and 
+very  little  thinking."
+recursion,.
+recursion,in this domain.
+recursion,"to  solve  the  individual 
+subproblems, and you’re home free."
+recursion,"can terminate, but the hard work has been done."
+recursion,"at that 
+point."
+recursion,"can terminate when a solution is found, the solveMaze 
+function returns true if a solution has been found, and false otherwise."
+recursion,"effectively,  at  some  point  you  must  be  able  to  look  at  a 
+recursive  function  like  the  solveMaze  example  in  Figure 9-3  and  say  to  yourself 
+something like this: “I understand how this works."
+recursion,will not come easily.
+recursion,", moving north is no longer possible, so the for loop 
+cycles through the other directions."
+recursion,.
+recursion,"systematically explores 
+every  corridor  along  this  path,  backing  up  through  the  stack  of  recursive  calls 
+whenever  it  reaches  a  dead  end."
+recursion,", eventually returning back to the main program."
+recursion,.
+recursion,.
+recursion,"to  continue 
+until  each  player  has  made  five  moves,  for  a  total  of  ten  ply."
+recursion,"limit before the outcome of the game is 
+decided?    At  that  point,  you  need  to  evaluate  the  position  in  some  other  way  that 
+does not involve making additional recursive calls."
+recursion,"limit  is 
+reached."
+recursion,limit or state of the game require static analysis.
+recursion,", which allows the algorithm to cut off computation after a certain number 
+of  moves  as  described  in  the  preceding  section."
+recursion,", however, you can avoid coding the details of the 
+backtracking process explicitly and develop general solution strategies that apply to 
+a wide variety of problem domains."
+recursion,to solve the problem from the new position.
+recursion,to find a knight’s tour.
+recursion,"itself  is 
+not  the  cause  of  the  problem."
+recursion,"sometimes gets a 
+bad name as a result."
+Recursion,"to the rescue      443 
+
+If all this mathematics scares you, try not to worry."
+Recursion,"to the rescue 
+
+At this point, you know considerably more about complexity analysis than you did 
+when you started the chapter."
+Recursion,"to the rescue      445 
+
+You can easily continue this process of choosing the smaller value from v1 or  v2 
+until you have reconstructed the entire vector."
+recursion,.
+Recursion,"to the rescue      447 
+
+The computational complexity of merge sort 
+
+You  now  have  an  implementation  of  the  sort  function  based  on  the  strategy  of 
+divide-and-conquer."
+recursion,viewed  from  the  opposite  direction.
+recursion,require  you  to  make  a  leap  of  faith.
+recursion,"and 
+mathematical induction."
+recursion,.
+recursion,.
+Recursion,"and lists 
+
+Although most code used to process linked lists proceeds iteratively in the manner 
+described in the preceding section, linked lists have a recursive character that often 
+turns out to be useful in practice."
+recursion,"makes it easy to step through the nodes in a binary search tree, 
+which  is  called  traversing  or  walking  the  tree."
+recursion,"in  the  definition  of  the  type  makes  it 
+impossible to declare either type in terms of types that have already been defined, as 
+C++ requires."
+recursion,"from  the  implementation  of  depthFirstSearch  by 
+using a stack to store the unexplored nodes."
+recursion,"to  evaluate  the  left  and 
+right subexpressions and then applies the appropriate operation."
+recursion,"proceeds, the readE and readT functions build up the 
+expression tree by calling the constructors for the appropriate expression class."
+recursion,"because the iterator 
+needs to operate sequentially, one step at a time."
+recursion,", 368 
+Gray code, 512 
+Gray, Frank, 512 
+greater class, 908 
+greater_equal class, 908 
+
+greatest common divisor, 58, 345 
+GRectangle class, 308 
+greedy algorithms, 804 
+Grid class, 210 
+grid."
+recursion,", 337 
+MVC pattern, 570 
+
+N log N time, 450 
+N-queens problem, 421 
+namespace, 9 
+natural number, 738 
+naughts and crosses, 426 
+Naur, Peter, 862 
+negate class, 908 
+neighbor, 771 
+nested type, 887 
+new operator, 517 
+nextToken method, 294 
+Nim game, 401, 426 
+Nim."
+recursion,", 339 
+normalization, 99 
+noshowpoint manipulator, 162 
+noshowpos manipulator, 162 
+noskipws manipulator, 166 
+not1 function, 908 
+not2 function, 908 
+not_equal_to class, 908 
+nouppercase manipulator, 162 
+NP-complete problem, 452 
+npos constant, 134 
+null character, 23, 503 
+NULL constant, 491 
+null pointer, 491 
+numCols method, 210 
+numRows method, 210 
+Nygaard, Kristen, 4 
+
+ 
+ 
+ 
+1034     Index 
+
+Obenglobish, 154 
+object, 129 
+object file, 5 
+object-oriented paradigm, 4 
+octal, 20 
+ofstream class, 168 
+Olson, Tillie, 569 
+open addressing, 687 
+open method, 170 
+opening a file, 168 
+operator, 26, 165 
+operator overloading, 131, 268 
+optimization, 881 
+ordinal number, 152 
+origin, 111 
+ostringstream class, 178 
+out-degree, 771 
+output manipulators, 162 
+OutputIterator, 889 
+Oval class, 832 
+overloading, 63, 616 
+Oxford University, 386 
+
+PageRank algorithm, 809 
+palindrome, 141, 332 
+paradigm shift, 4 
+parameter, 61 
+parameterized classes, 198 
+parent, 691 
+parse tree, 846 
+parser generator, 863 
+parsing, 841 
+parsing an expression, 861 
+partially ordered tree, 719 
+partition function, 906 
+partitioning, 454 
+Parville, Henri de, 350 
+Pascal’s Triangle, 347 
+Pascal, Blaise, 347 
+path, 771 
+pattern, 134 
+peek method, 212, 218 
+
+peg solitaire, 423 
+perfect number, 117 
+permutation, 119, 364 
+persistent property, 161 
+PI constant, 17, 83 
+Picasso, Pablo, 368 
+Pig Latin, 142 
+pigeonhole principle, 472 
+PigLatin."
+recursion,", 316 
+recursive decomposition, 318 
+recursive descent, 863 
+recursive leap of faith, 324 
+recursive paradigm, 318 
+red-black tree, 732 
+reductionism, 338 
+reference parameter, 73 
+rehashing, 682 
+relation, 740 
+relational operator, 34 
+remove method, 200 
+repeatChar function, 136 
+replace method, 130 
+replaceAll function, 151 
+replace_if function, 906 
+reserved word, 16 
+resize method, 210 
+retractMove method, 415 
+return by reference, 272 
+RETURN key, 12 
+returning a value, 57 
+reverse function, 137 
+Reverse Polish Notation (RPN), 213 
+right manipulator, 162 
+right rotation, 710 
+right-associative, 28 
+right-hand rule, 390 
+rightFrom function, 80 
+ring buffer, 639 
+Ritchie, Dennis, 2, 4 
+Robson, David, 5 
+
+ 
+ 
+ 
+1036     Index 
+
+Roman numerals, 685 
+root, 690 
+roundToSignificantDigits, 871 
+row-major order, 239 
+Rowling, J."
+Recursive backtracking,"in a maze  390 
+9."
+Recursive backtracking,"in a maze 
+
+Once  upon  a  time,  in  the  days  of  Greek  mythology,  the  Mediterranean  island  of 
+Crete  was  ruled  by  a  tyrannical  king  named  Minos."
+Recursive backtracking,"in a maze      391 
+
+To  visualize  the  operation  of  the  right-hand  rule,  imagine  that  Theseus  has 
+successfully dispatched the Minotaur and is now standing in the position marked by 
+the first character in Theseus’s name, the Greek letter theta (!): 
+
+If Theseus puts his right hand on the wall and then follows the right-hand rule from 
+there, he will trace out the path shown by the dashed line in this diagram: 
+
+Unfortunately, the right-hand rule does not in fact work in every maze."
+Recursive backtracking,"in a maze      393 
+
+the solution."
+Recursive backtracking,"in a maze      395 
+
+maze."
+Recursive backtracking,"in a maze      397 
+
+The  code  for  the  solveMaze  function  appears  in  Figure 9-3,  along  with  the 
+function adjacentPoint(start, dir), which returns the point you reach if you 
+move in the specified direction from the starting point."
+Recursive backtracking,"in a maze      399 
+
+At this level of the recursion, moving north is no longer possible, so the for loop 
+cycles through the other directions."
+recursive backtracking,"applies to two-player games, it helps to consider 
+a simple example such as the game of Nim, which is the generic name for an entire 
+class  of  games  in  which  players  take  turns  removing  objects  from  some  initial 
+configuration."
+recursive backtracking,"strategy described in this chapter should 
+be  sufficient  to  solve  most  puzzles  that  involve  performing  a  sequence  of 
+moves looking for some solution."
+recursive backtracking,"can accomplish without using 
+some  additional  cleverness  is  the  peg solitaire  puzzle,  which  dates  from  the 
+17th century."
+recursive backtracking,", Chapter 9 offered a general outline 
+for creating two-player games based on the minimax algorithm."
+Classes,"261 
+
+6."
+classes,"301 
+
+  Summary  303 
+  Review questions  305 
+  Exercises  306 
+
+iii 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+7 
+
+Introduction to Recursion 
+
+315 
+
+7."
+classes,"449 
+10."
+classes,"and other programmer-defined data types begin with an uppercase 
+letter, as in Direction or TokenScanner."
+classes,"and objects are presented after you have had a chance to 
+use  them  in  a  high-level  way."
+classes,"of operators that manipulate Boolean data: the relational 
+operators, the logical operators, and the ?: operator."
+classes,",  for  example,  you  learned  about 
+functions like logarithms and square root."
+classes,", which are the foundation of the object-oriented 
+type system that C++ provides."
+classes,"until  Chapter 6,  it  is  premature  to  introduce  class-based  examples  at  this 
+point in the text."
+classes,"are 
+when you begin to define your own classes in Chapter 6."
+classes,"as a representative example of inheritance hierarchies in 
+an object-oriented language."
+classes,that  form  a  hierarchical  structure.
+classes,"—ifstream  and  ofstream—
+exported by the <fstream> library."
+classes,"that  allow  you  to  associate  a  stream  with  a  string  value  in  much  the  same 
+way that the <fstream> library allows you to associate a stream with a file."
+classes,.
+Classes,have a number of advantages over older strategies for representing data.
+classes,"provide  a  framework  for  encapsulation, 
+which  is  the  process  of  combining  the  data  representation  and  the  associated 
+operations  into  a  coherent  whole  that  reveals  as  few  details  as  possible  about  the 
+underlying  structure."
+classes,"you  have  already  seen  in  this  chapter  illustrate 
+encapsulation  well."
+classes,",  you  have  no  idea  how  they  are 
+implemented."
+classes,and how to call them.
+Classes,"in an object-oriented language form a hierarchy in 
+which  each  class  automatically  acquires  the  characteristics  of  the  classes  that 
+precede  it  in  the  hierarchy."
+classes,and objects.
+classes,"in the stream libraries form hierarchies that are in many ways similar to 
+the biological hierarchy introduced in the preceding section."
+classes,"form  the  hierarchy  shown  in 
+Figure 4-6."
+classes,"then 
+fall naturally into the appropriate position in this hierarchy, as shown."
+classes,"are 
+often useful in their own right, it is useful to expand them to include the methods 
+exported at each level, as shown in Figure 4-7."
+classes,in  the  diagram.
+classes,.
+classes,"in the stream library form a hierarchy in which subclasses inherit the 
+behavior of their superclasses."
+classes,"does  the  <sstream>  library  support?    How  are  these  classes 
+
+different from the ones provided in <fstream>? 
+
+16."
+classes,"—Vector, Stack, Queue, Map, and Set—
+each  of  which  represents  an  important  abstract  data  type."
+classes,", 
+moreover,  contains  a  collection  of  values  of  some  simpler  type."
+classes,"are 
+therefore called collection classes."
+classes,"are implemented, because your primary focus is on learning how 
+to use these classes as a client."
+classes,"introduced in this chapter, you must include 
+the appropriate interface, just as you would for any of the libraries from the earlier 
+chapters."
+classes,"is simply the name of the 
+class spelled with a lowercase initial letter and followed with the extension ."
+classes,"used in this book are inspired by and draw much of their 
+structure  from  a  more  advanced  set  of  classes  available  for  C++  called  the 
+Standard Template Library,  or  STL  for  short."
+classes,"is the  Vector class, which provides a 
+facility similar to  the arrays you have almost certainly encountered in your earlier 
+experience  with  programming."
+classes,"like Vector, which, not surprisingly, 
+
+ 
+ 
+ 
+ 
+ 
+ 
+198     Collections 
+
+uses  arrays  in  its  underlying  structure."
+classes,"specify the type of object they contain by including the 
+type  name  in  angle  brackets  following  the  class  name."
+Classes,"that include a base-type specification are called parameterized classes in 
+the  object-oriented  community."
+classes,"are  more  often 
+called  templates,  which  reflects  the  fact  that  C++  compilers  treat  Vector<int>, 
+Vector<char>,  and  Vector<string>  as  independent  classes  that  share  a 
+common structure."
+classes,",  in  which  the  only  difference  is  what  type  of  value  the  vector 
+contains."
+classes,can override the definition of the standard operators.
+classes,effectively.
+classes,"Plate and Frame, you can create stacks of these 
+objects  using  the  classes  Stack<Plate>  and  Stack<Frame>."
+classes,"introduced earlier in this chapter, Map is implemented 
+as a template class that must be parameterized with both the key type and the value 
+type."
+classes,"is the Set class, which exports the entries 
+shown in Table 5-6."
+classes,"is well designed, clients should 
+be able to use the same strategy to perform that operation, no matter whether they 
+are cycling through all elements in a vector or a grid, all keys in a map, or all words 
+in a lexicon."
+classes,"—both those 
+in  the  Standard  Template  Library  and  the  simplified  versions  used  in  this  text—
+support a new control pattern called a range-based for loop that has the following 
+form: 
+
+for (type variable : collection) { 
+   body of the loop 
+} 
+
+For example, if you want to iterate through all the words in the English lexicon and 
+select only those containing two letters, you could write 
+
+for (string word : english) { 
+   if (word."
+classes,in both the Stanford and STL implementations.
+classes,"you’ve  already  seen  make  the  following 
+guarantees about the order of values: 
+
+•  When you iterate through the elements of the Vector class, the range-based for 
+loop  delivers  the  elements  in  order  by  index  position,  so  that  the  element  in 
+position 0 comes first, followed by the element in position 1, and so on, up to the 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Summary      239 
+
+end of the vector."
+classes,.
+classes,"Vector, Stack, Queue, Map, and Set that 
+together represent a powerful framework for storing collections."
+classes,only as a client.
+classes,"presented  here  have 
+been  simplified  to  some  extent  from  the  vector,  stack,  queue,  map,  and  set 
+classes  in  the  Standard  Template  Library,  although  they  export  a  very  similar 
+collection of methods."
+Classes,"that contain other objects as elements of an integral collection are called 
+collection  classes."
+classes,"are  defined  using  a  template  or 
+parameterized  type,  in  which  the  type  name  of  the  element  appears  in  angle 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+244     Collections 
+
+brackets  after  the  name  of  the  collection  class."
+classes,"support  the  the 
+range-based for loop pattern, which makes it easy to cycle through the elements 
+of the collection."
+classes,", the Stanford libraries export the closely 
+related  classes  HashMap  and  HashSet."
+classes,"step through 
+the elements in increasing order as defined by the value type."
+classes,"are  more  efficient,  but  step  through  elements  in  a  seemingly 
+random order."
+classes,"? 
+
+21."
+classes,"? 
+
+29."
+classes,introduced in this chapter.
+Classes,You don’t understand.
+Classes,"Although you have been using classes extensively throughout this book, you have 
+not yet had the chance to define classes of your own."
+classes,.
+classes,"—but by no means the only one—is that they 
+make it possible to combine several related pieces of information into a composite 
+value that can be manipulated as a unit."
+classes,"in C++, it is important to keep in mind 
+that the definition introduces a new type and does not in itself declare any variables."
+Classes,"C++  makes  it  easier  to  maintain  a  high-level  perspective  by  defining  several 
+important operations that work with the structure as a whole."
+classes,", which offer greater power 
+and flexibility."
+classes,"and  behave  in  exactly  the  same  way  except 
+for the fact that entries are public by default."
+classes,"in Chapter 5, creating 
+objects  is  the  responsibility  of  a  constructor,  which  always  has  the  same  name  as 
+the  class."
+Classes,"often  define  more  than  one  version  of  the  constructor  to  take 
+account  of  different  initialization  patterns."
+classes,"define  a 
+constructor  that  takes  no  arguments,  which  is  called  the  default constructor."
+Classes,"For the most part, the code in Figure 6-1 should be easy to understand."
+Classes,"designed in this way are said to 
+be immutable."
+Classes,"object  by  assigning  another  Point  to  it,  there  is  no  way  to  change  the  individual 
+fields in a point independently."
+classes,"in several of the earlier 
+chapters, C++ makes it possible to extend the standard operators so that they apply 
+to  new  types."
+Classes,point.
+classes,"that  overload  the  + 
+operator, for example, use it for operations that are conceptually similar to addition, 
+like concatenating strings."
+Classes,that takes arguments of that type.
+classes,"in this text use this second form, which emphasizes that the << operator 
+continues to produce the same value it returns when you apply it to other types."
+Classes,"fields in the variable pt, while the expressions rhs."
+classes,"both want access to the private variables 
+of the other, each class must explicitly declare the other class as a friend."
+Classes,Finished version of point.
+Classes,point.
+classes,", C++ also 
+allows you to extend the definition of operators so that they work with enumerated 
+types."
+Classes,"When you overload the ++ or -- operators in C++, you have to tell the compiler 
+whether  you  want  to  redefine  the  prefix  or  suffix  form  of  the  operator."
+Classes,"Within the limits of double-precision arithmetic, the sum of one-half plus one-third 
+plus  one-sixth  is  closer  to  0."
+classes,"When  you  work  in  object-oriented  languages,  designing  new  classes  is  the  most 
+important skill you need to master."
+classes,as  tools.
+classes,"are 
+designed  to  meet  the  needs  of  clients  and  not  for  the  convenience  of  the 
+implementer."
+Classes,"typically  define 
+more than one overloaded form of the constructor, and it is useful to think from 
+the client’s point of view about the types of objects that need to be created and 
+what  information  the  client  has  on  hand  at  that  time."
+Classes,is to illustrate the structure of class definitions in C++.
+classes,consist  of  a  pair  of  integers.
+classes,"different is the interpretation of that data, which is reflected in the operations each 
+class supports."
+Classes,"value  for  the  default  rational  number  is  zero,  which  is  represented  as  the  fraction 
+0/1."
+Classes,rational.
+Classes,rational.
+Classes,6.
+Classes,"Similarly, the string constant ""hello, world"" has the correct meaning only if the 
+token  scanner  treats  it  as  a  single  entity."
+Classes,"The  implementation  of  scanCPlusPlusTokens  in  Figure 6-9  tells  the  scanner  to 
+ignore  whitespace  and  comments,  that  numbers  and  strings  should  be  scanned  as 
+single tokens, that the underscore is a legal character in an identifier, and that C++ 
+recognizes the multicharacter operators (many of which are likely to be unfamiliar 
+but are nonetheless defined in C++) shown in the various calls to addOperator."
+Classes,tokenscanner.
+Classes,tokenscanner.
+classes,"301 
+
+The  ignoreWhitespace  method  serves  as  a  model  for  the  other  option  settings 
+that  are  available  in  this  package,  and  you  will  have  a  chance  to  implement  all  of 
+these  options  in  the  exercises."
+classes,"Most of the class definitions you have seen in this chapter create new abstract types 
+that you can then use as if they were primitive objects."
+classes,.
+Classes,", however, can still be useful even if you never intend to have more than 
+one  object  of  a  particular  class."
+classes,provide  better  encapsulation.
+Classes,"Class-based checkout-line simulation 
+
+Summary      303 
+
+the free functions runSimulation and printReport become public methods in a 
+new CheckoutLineSimulation class."
+classes,on your own.
+classes,"that 
+encapsulate data and operations into a coherent whole, deferring the more complex 
+issue of inheritance to Chapter 19."
+classes,.
+classes,"access  to  its 
+private data by declaring them as friends."
+Classes,"•  Given  a  compound  object  that  is  either  a  structure  or  a  class,  you  select  the 
+individual components using the dot operator."
+classes,"overload the << operator and define a toString method 
+that converts a value of that class to a string."
+classes,is  as  much  an  art  as  a  science.
+Classes,17.
+Classes,"This program should produce the following sample run: 
+
+3."
+classes,designed  to  work  together  with  the  graphics  library.
+classes,"is  GPoint,  which  is  identical  to  the  Point  class  from  this  chapter 
+except  for  the  fact  that  it  uses  floating-point  numbers  for  the  coordinates 
+instead of integers."
+classes,exported  by  the  gtypes.
+classes,"and 
+other abstract data types."
+Classes,"•  An overloaded version of the constructor that takes the first two parameters 
+in the opposite order, for the benefit of clients in other parts of the world."
+Classes,8.
+Classes,15.
+classes,introduced  in  Chapter 6.
+classes,"449 
+
+and a half minutes to sort 100,000 items while merge sort completes the job in less 
+than  half  a  second."
+classes,"In  programming,  most  algorithms  fall  into  one  of  several  common  complexity 
+classes."
+classes,"are  shown  in  Figure 10-6,  which 
+gives the common name of the class along with the corresponding big-O expression 
+and a representative algorithm in that class."
+classes,"in  Figure 10-6  are  presented  in  strictly  increasing  order  of 
+complexity."
+classes,are  in  fact  profound.
+classes,"451 
+
+functions on a traditional linear scale."
+classes,"are  all  part  of  a  more  general  family  called  polynomial algorithms  that 
+execute  in  time  N k  for  some  constant  k."
+classes,": those that are smaller than the pivot; the 
+pivot element itself, which is situated at the boundary position; and those elements 
+that are at least as large as the pivot."
+classes,",  which 
+include  the  constant,  logarithmic,  linear,  N  log  N ,  quadratic,  cubic,  and 
+exponential classes."
+classes,"identified  in  this  chapter  as  the  most 
+
+common classes encountered in practice? 
+
+19."
+classes,"in 
+C++  that  make  programming  so  much  easier."
+classes,are  built.
+classes,", you need to have some familiarity with the mechanics of arrays."
+classes,"help make it possible to 
+maintain this holistic viewpoint."
+classes,"introduced  in 
+Chapter 5,  for  example,  depend  on  this  ability."
+classes,"need more memory, they simply request 
+it from the system."
+classes,"use  the  heap  to  store  their  elements,  because 
+dynamic allocation is essential to creating data structures that can expand as needed."
+classes,.
+classes,"typically 
+define one or more constructors that initialize an object."
+classes,"that  use 
+dynamic  allocation  is  to  implement  one  of  the  container  classes  from  Chapter 5."
+classes,like  Stack use dynamic allocation to manage memory.
+classes,"you’ve seen 
+earlier in this text, a few of the methods bear special mention."
+classes,"like  CharStack  through  their  paces,  checking  every  method  exported  by 
+the interface under conditions that approximate the expected patterns of use."
+classes,"functioning  correctly,  it  is  harder  to  figure  out  where  the  errors  are  when 
+something goes wrong."
+classes,"to support deep 
+copying,  all  you  have  to  do  is  supply  new  definitions  for  these  two  methods  that 
+copy the dynamically allocated data as well."
+classes,.
+classes,"in  both  the  STL  and  the  Stanford 
+libraries are const correct."
+classes,"requires more effort, but 
+allows you to write code that is more efficient and easier to read."
+classes,"help make it possible to 
+maintain this holistic viewpoint."
+classes,"available, either 
+would be an appropriate choice."
+classes,are not visible to clients.
+classes,"introduced in Chapter 5 are examples of a 
+general  category  of  abstract  data  types  called  linear structures,  in  which  the 
+elements  are  arranged  in  a  linear  order."
+classes,"—unlike the CharStack class from Chapter 12—aren’t limited to 
+a single data type."
+classes,"from Chapter 5 depend on the C++ template facility, which means 
+that  you  need  to  understand  how  templates  work  before  you  can  appreciate  the 
+underlying implementation of the collection classes."
+classes,"by implementing deep 
+copying and by using templates to support polymorphism."
+classes,"you  have  already  seen  means  that  the 
+code requires less in the way of explanation."
+classes,"to redefine the selection by overriding the definition of operator[], 
+which has the following prototype: 
+
+ValueType & operator[](int index); 
+
+As  was  true  for  the  insertion  operator,  the  selection  operator  must  use  return  by 
+reference so that it is possible to assign a new value to an element position."
+classes,", the situation is even worse because 
+C++  requires  that  the  entire  implementation  be  available  whenever  it  expands  a 
+template."
+classes,must contain all the code as well as the definitions.
+classes,.
+classes,", along with the public interface for a polymorphic Vector class."
+classes,.
+classes,—Map and HashMap—that implement the map idea.
+classes,implement the same methods and can often be used interchangeably.
+classes,"is the order in which keys are processed when you 
+iterate over the elements."
+classes,"are 
+implemented."
+classes,"introduces  a  fair 
+amount of complexity."
+classes,",  the  additional  complexity  they  require  can  easily  get  in  the 
+way  of  understanding  the  structure  of  the  algorithms  used  to  implement  the  map 
+idea."
+classes,"have been declared as pointers to the base 
+type."
+classes,.
+classes,both  made  their  appearance  in  Chapter 5.
+classes,.
+classes,turn  out  to  be  relatively  easy  to  write.
+classes,", the set."
+classes,you already have.
+classes,"in which you specify particular values 
+for one or more of the template parameters of a more general type."
+classes,use different data models.
+classes,.
+classes,or methods.
+classes,"for graphs, nodes, and arcs 
+
+If  the  primary  goal  in  redesigning  the  graph."
+classes,corresponding  to  the  Node  and  Arc  types.
+classes,would  presumably  match  those  in  the  corresponding  structure.
+classes,"such as arrays, stacks, queues, and 
+sets."
+classes,"for  nodes  and  arcs  that  contain  the  information  necessary  to  represent  the 
+graph  structure."
+classes,"to  create  new  subclasses  with  additional  fields  and 
+methods."
+classes,"—City and Flight—each of which has no public 
+instance  variables."
+classes,",  however,  contains  the  required  private 
+fields and defines Graph<City,Flight> as a friend."
+classes,"792     Graphs 
+
+Given these definitions of City and  Flight, the airline graph itself is then an 
+instance of the Graph template class specialized with the appropriate node and arc 
+types, as follows: 
+
+Graph<City,Flight> airlineGraph; 
+
+Table 18-1  shows  the  methods  exported  by  the  graph."
+classes,", given that much of 
+the  complexity  has  been  shifted  to  the  Set  and  Map  classes  on  which  Graph  is 
+based."
+classes,.
+classes,.
+classes,involved.
+classes,.
+classes,"that  are 
+similar  in  certain  respects  but  different  in  others."
+classes,simply inherit.
+classes,in  the  Employee  hierarchy.
+classes,you have seen all along.
+classes,that  manage  their  own  heap  memory.
+classes,"are implemented as independent classes that do not form an 
+inheritance  hierarchy."
+classes,",  by  contrast,  form  a  sophisticated 
+hierarchy  but  do  not  allow  assignment."
+classes,"that know how to draw themselves 
+on  the  window."
+classes,"is equally straightforward and appears 
+in Figure 19-5."
+classes,.
+classes,",  as  long  as  you  remember  to  use 
+pointers to the Shape objects rather than the objects themselves."
+classes,"—the high-level  Expression class and the 
+lower-level  subclasses  ConstantExp,  IdentifierExp,  and  CompoundExp—are 
+all included as part of the exp."
+classes,independently.
+classes,are  straightforward  to  implement.
+classes,can  inherit  behavior  from  more  than  one  superclass.
+classes,"in the C++ library and is 
+therefore worth including in this book."
+classes,that  are  both  input  and  output  streams.
+classes,"fit into the stream hierarchy as a 
+whole."
+classes,"always produce figures 
+filled  with  a  single  color."
+classes,"requires 
+duplicating  those  declarations."
+classes,"include a protected section along with the public and private 
+sections  you  have  used  all  along."
+classes,"to inherit behavior from more than one superclass, which is 
+called  multiple  inheritance."
+classes,"and  methods  are  virtual  in  the  Shape  class  hierarchy  shown  in 
+
+Figure 19-3? 
+
+11."
+classes,"that 
+support iteration."
+classes,", 
+however, define iterators that support more general operations."
+classes,"that 
+map keys into values."
+classes,that  overload  this  operator  are  called  function classes.
+classes,are called function objects or functors.
+classes,"—and  their 
+counterparts in the Standard Template Library—allow the argument to be a function 
+object  whose  operator()  method  is  overloaded  to  take  the  same  arguments  that 
+you  would  pass  to  a  mapping  function."
+classes,"and  methods,  including  those  that  appear  in  Table 20-3."
+classes,generally fall into two categories represented by the first section of the table.
+classes,"in the <functional> library that take two arguments—the 
+first  of  type  arg1  and  the  second  of  type  arg2—and  returns  a  value  to  type  result."
+classes,that take a single argument.
+classes,"in the next three sections act as an object-oriented counterparts of the 
+standard  arithmetic,  relational,  and  logical  operators  provided  by  C++."
+classes,rather  than  objects.
+classes,"in  the  <functional>  library  are  particularly 
+important  because  they  make  it  possible  for  clients  to  define  their  own  ordering 
+relationships."
+classes,to define the order in which elements appear.
+classes,"Even  though  it  implements  the  most  sophisticated  level  of  iterator  functionality, 
+iterators are considerably easier to implement for Vector than they are for most of 
+the other collection classes."
+classes,"like Grid and HashMap are not too 
+difficult  and  make  instructive  exercises."
+classes,"like 
+Map, however, turn out to be enormously tricky, mostly because the implementation 
+has  to  translate  the  recursive  structure  of  the  data  into  an  iterative  form."
+classes,"in both the Stanford libraries and the Standard Template 
+Library  export  a  nested  iterator  class,  which  supports  cycling  through  the 
+elements in a collection."
+classes,"like Map and 
+Set, which need to determine the relative order of elements."
+classes,": constant, logarithmic, linear, N log N, 
+quadratic, and exponential."
+classes,"in  C++,  the 
+declarations of Map iterators inside the Set class need to be marked with the 
+typename keyword, leading to declarations like this: 
+
+typename Map<ValueType,bool> it = map."
+classes,", 198 
+parent, 691 
+parse tree, 846 
+parser generator, 863 
+parsing, 841 
+parsing an expression, 861 
+partially ordered tree, 719 
+partition function, 906 
+partitioning, 454 
+Parville, Henri de, 350 
+Pascal’s Triangle, 347 
+Pascal, Blaise, 347 
+path, 771 
+pattern, 134 
+peek method, 212, 218 
+
+peg solitaire, 423 
+perfect number, 117 
+permutation, 119, 364 
+persistent property, 161 
+PI constant, 17, 83 
+Picasso, Pablo, 368 
+Pig Latin, 142 
+pigeonhole principle, 472 
+PigLatin."
+Pointers,"and Arrays 
+
+473 
+
+The structure of memory  474 
+
+11."
+Pointers,"484 
+11."
+pointers,.
+Pointers,"and Arrays 
+
+Orlando ran her eyes through it and then, using the first finger of 
+her  right  hand  as  pointer,  read  out  the  following  facts  as  being 
+most germane to the matter."
+Pointers,"and Arrays 
+
+For  the  most  part,  the  programs  in  this  book  have  relied  on  abstract  data  types  to 
+represent compound objects."
+pointers,and arrays—those costs are impossible to evaluate.
+Pointers,"and Arrays 
+
+That  sequence  of  bits  represents  the  number  forty-two,  which  you  can  verify  by 
+calculating the contribution for each of the individual bits, as follows: 
+
+This  diagram  illustrates  how  to  map  an  integer  into  bits  using  binary  notation, 
+but also helps to demonstrate the fact that writing numbers in binary form is terribly 
+inconvenient."
+Pointers,"and Arrays 
+
+reasons dating back to its predecessor languages, C++ defines the data type char to 
+be exactly one byte in size."
+Pointers,"and Arrays 
+
+•  Writing address numbers in their hexadecimal form using a sans-serif font makes 
+it easier to recognize that a particular number represents an address rather than 
+some  unidentified  integer."
+Pointers,"and Arrays 
+
+assigned space in a block that is pushed onto the top of the stack at the time of each 
+function call."
+Pointers,"and Arrays 
+
+enough  of  a  sense  of  how  variables  are  assigned  to  memory  to  cover  the  topic  of 
+pointers, which are introduced in the following section."
+Pointers,"One of the principles behind the design of C++ is that programmers should have as 
+much access as possible to the facilities provided by the underlying hardware."
+pointers,"are  used  sparingly  because 
+those  languages  provide  other  mechanisms  that  eliminate  much  of  the  need  for 
+pointers."
+pointers,"from  the 
+programmer  altogether."
+pointers,"are  pervasive,  and  it  is  impossible  to 
+understand most professional C++ programs without knowing how pointers work."
+pointers,"serve  several  purposes,  of  which  the  following  are  the  most 
+
+important: 
+
+•  Pointers  allow  you  to  refer  to  a  large  data  structure  in  a  compact  way."
+Pointers,"allow you to use the address as 
+a shorthand for the complete value."
+Pointers,make it possible to reserve new memory during program execution.
+pointers,.
+Pointers,can  be  used  to  record  relationships  among  data  items.
+pointers,"are  used  extensively  to  model  connections 
+between  individual  data  values."
+pointers,"to  create  connections  between  individual  components  are  called 
+linked structures."
+Pointers,"485 
+
+Using addresses as data values 
+
+In C++, any expression that refers to an internal memory location capable of storing 
+data is called an lvalue (pronounced “ell-value”)."
+Pointers,"and Arrays 
+
+you use the same declaration to declare two pointers of the same type, you need to 
+mark each of the variables with an asterisk, as in 
+
+int *p1, *p2; 
+
+The declaration 
+
+int *p1, p2; 
+
+declares p1 as a pointer to an integer, but declares p2 as an integer variable."
+Pointers,"487 
+
+To  initialize  the  pointer  variables  p1  and  p2,  you  need  to  assign  values  that 
+represent the addresses of some integer objects."
+pointers,"emphasizes the fact that addresses 
+are stored internally as numbers."
+pointers,mean.
+pointers,", the diagram looks like this: 
+
+Using arrows in the diagram makes it clear that the variables p1 and p2 point to the 
+cells  indicated  by  the  arrowheads."
+pointers,work and therefore appear in most of the memory diagrams in this text.
+pointers,"are  simply  numeric 
+addresses and that there are no arrows inside the machine."
+Pointers,"and Arrays 
+
+To  move  from  a  pointer  to  the  value  it  points  to,  you  use  the  *  operator."
+Pointers,"489 
+
+pointer  is  simply  copied  unchanged  to  the  destination."
+Pointers,"to structures and objects 
+
+The examples in the preceding sections declare pointers only to the primitive types."
+pointers,"in conjunction with structures or 
+objects."
+Pointers,"and Arrays 
+
+From the pointer pp, you can move to the object using the * operator, so that *pp 
+and pt are effectively synonyms."
+pointers,"to 
+objects  all  the  time."
+pointers,to  objects  considerably  less  convenient.
+Pointers,"491 
+
+The  problem  of  shadowing  was  introduced  in  Chapter 6  in  the  context  of  the 
+
+constructor for the Point class, which at the time looked like this: 
+
+Point(int cx, int cy) { 
+   x = cx; 
+   y = cy; 
+} 
+
+The parameters in this constructor had to be named something other than x and y to 
+avoid  name  conflicts  with  the  instance  variables."
+pointers,.
+Pointers,"and Arrays 
+
+The  uses  of  the  null  pointer  will  be  introduced  in  this  text  as  they  become 
+relevant  to  a  particular  application."
+Pointers,"and call by reference 
+
+As  an  illustration  of  their  use  in  practice,  pointers  are  used  internally  by  C++  to 
+implement  call  by  reference."
+Pointers,"493 
+
+All references to x and y inside swap are passed along to the variables n1 and n2, 
+which are the targets of the pointers."
+Pointers,"and Arrays 
+
+Although call by reference is extremely convenient, it is not an essential feature 
+of the C++ language."
+pointers,explicit.
+Pointers,"and Arrays 
+
+As with the elements in a vector, the index numbers for an array always begin with 
+0 and run up to the array size minus one."
+Pointers,"and Arrays 
+
+you  could  initialize  a  variable  N_BIG_CITIES  to  hold  the  number  of  cities  in  the 
+bigCities array by writing 
+
+const int N_BIG_CITIES = sizeof BIG_CITIES / 
+                         sizeof BIG_CITIES[0]; 
+
+Effective and allocated sizes 
+
+Although  the  sizeof  technique  allows  you  to  determine  the  size  of  a  statically 
+allocated array, there are many applications in which you have no way of knowing 
+how large an array should be when you write the code because the actual number of 
+elements  depends  on  the  user’s  data."
+pointers,"and arrays 
+
+In  C++,  the  name  of  an  array  is  synonymous  with  a  pointer  to  its  initial  element."
+pointers,"is that array parameters appear to be shared with the calling argument even 
+though no explicit call by reference is involved."
+Pointers,"and Arrays 
+
+As  a  general  rule,  you  should  declare  parameters  in  the  way  that  reflects  their 
+use."
+pointers,"in C++ comes into play when 
+variables  are  originally  declared,  not  when  those  values  are  passed  as  parameters."
+pointers,.
+Pointers,"and Arrays 
+
+p + 2 
+
+the result of evaluating this expression would be a new pointer value that contains 
+the address of list[2]."
+pointers,"and cannot be 
+used  with  pointer  operands."
+pointers,"are 
+limited."
+pointers,together.
+pointers,"is  subtracting  one 
+
+pointer from another."
+pointers,"Knowing the rules for pointer arithmetic makes it possible to understand one of the 
+most common idiomatic constructions in C++, which is the expression 
+
+*p++ 
+
+In  this  expression,  the  *  operator  and  the  ++  operator  compete  for  the  operand  p."
+Pointers,"and Arrays 
+
+As the diagram makes clear, the length of a C-style string is not stored explicitly 
+as part of the data structure, but is instead indicated by the null character that serves 
+as a sentinel to mark the end."
+pointers,along the way.
+Pointers,"and Arrays 
+
+Pointer arithmetic and programming style 
+
+For reasons of history and habit, many C++ programmers use pointer arithmetic in 
+places where array notation makes the intent much clearer."
+pointers,"are & and *, which indicate the address 
+
+of a stored value and the value stored at a particular address, respectively."
+pointers,"so  that  adding  an  integer  to  a  pointer 
+generates the address of an array element that number of index positions further 
+down  in  the  array."
+pointers,"are cited in this chapter? 
+
+15."
+pointers,"require  four  bytes  of 
+memory,  draw  a  diagram  showing  a  portion  of  the  stack  frame  that  contains 
+the following declarations: 
+
+int v1 = 10; 
+int v2 = 25; 
+int *p1 = &v1; 
+int *p2 = &v2; 
+
+In your diagram, trace through the operation of these statements: 
+
+*p1 += *p2; 
+p2 = p1; 
+*p2 = *p1 + *p2; 
+
+19."
+pointers,"used in the implementation of call by reference? 
+
+22."
+pointers,"instead  of  call  by  reference  to  return  values  from  the  functions 
+getCoefficients and solveQuadratic."
+Pointers,"make  it  possible  to  record  connections  among  different  values in a larger 
+data  structure."
+pointers,"to  structures  in  the  heap,  the 
+subsections that follow introduce a fundamental data structure called a linked list in 
+which the pointers connect individual data values in a single linear chain."
+pointers,are  called  links.
+Pointers,"are  often  used  to  specify  connections  among  individual  elements  in  a 
+data  structures."
+pointers,form a linear chain.
+pointers,"that define the order of the elements are called 
+links."
+pointers,are copied as well.
+pointers,.
+pointers,.
+pointers,"to Cell objects: a start pointer that shows where the list 
+begins and a cursor pointer that marks the current cursor position."
+pointers,.
+pointers,.
+Pointers,"allow  you  to  follow  a  chain  from  the  pointer  to  the  object  to  which  it  points,  but 
+there  is  no  way  to  reverse  the  direction."
+pointers,.
+pointers,"impose a preferred direction on the 
+implementation: moving forward is easy because the pointers move in the forward 
+direction."
+pointers,symmetrical.
+pointers,"in  this  diagram,  which  makes  it  is  easy  to  get 
+confused."
+pointers,for  each  line  rather  than  for  each  character.
+pointers,"that connect one value 
+to  the  next  are  called  links,  and  the  individual  records  used  to  store  the  values 
+and link fields together are called cells."
+pointers,to  characters.
+pointers,so that the new cell becomes the first element in the chain.
+pointers,"so 
+that they point to the cell containing the new element."
+pointers,"at the end 
+of the enqueue operation would look like this: 
+
+ 
+14."
+pointers,", one 
+
+to the head of the queue and another to the tail."
+pointers,"to the base 
+type."
+pointers,"was taken seriously—hash tables often used a more 
+memory-efficient  strategy  called  open addressing,  in  which  the  key-value 
+pairs are stored directly in the array, like this: 
+
+For example, if a key hashes to bucket #2, the open-addressing strategy tries to 
+put that key and its value directly into the entry at array[2]."
+pointers,associated  with  each  cell  form  a  linear  chain  that  defines  the  underlying  order.
+pointers,"to define the ordering relationship among a set of values is 
+considerably  more  powerful  than  the  linked-list  example  suggests  and  is  by  no 
+means limited to creating linear structures."
+pointers,to model hierarchical relationships.
+pointers,to each of its children.
+pointers,to nodes.
+pointers,to its children.
+pointers,"in a vector, a node has the following form as a C++ structure: 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+16."
+pointers,"in the 
+first half of the list."
+pointers,"in the structure provide 
+access to Grumpy and any name that follows it in the chain, but there is no longer 
+any way to reach Bashful, Doc, and Dopey."
+pointers,to NULL.
+pointers,": one to its eldest child 
+and  one  to  its  next  younger  sibling."
+pointers,"in the trie indicate that no legal symbols appear in the 
+subtree  beginning  with  that  substring  and  therefore  make  it  possible  to 
+terminate the search process."
+pointers,to Node and Arc values.
+pointers,"to  Arcs,  and  the  Arc  structure  includes 
+pointers  to  Nodes."
+pointers,to either of these structures before its definition appears.
+pointers,"in 
+the order of the memory addresses at which those structures appear."
+pointers,"to the client’s arc 
+type."
+pointers,"in the arc structure must be 
+declared as pointers to the client’s node type."
+pointers,"to arcs and nodes as their element types? 
+
+17."
+pointers,"to 
+objects rather than the objects themselves."
+pointers,"to  Employee  objects  are  the  same  size  and  therefore  fit  in  the  same 
+vector."
+pointers,"complicates the process of memory management, 
+which is already a difficult challenge in C++."
+pointers,"cross the boundary 
+to the client side of the interface, the overall complexity skyrockets."
+pointers,"to Shape objects in either of these contexts, exactly as they should."
+pointers,"in a vector 
+
+One of the advantages of defining a Shape class hierarchy is that doing so makes it 
+possible  to  store  shapes  in  collection  classes,  as  long  as  you  remember  to  use 
+pointers to the Shape objects rather than the objects themselves."
+pointers,"to its subexpressions, and so on."
+pointers,"which 
+indicate the left and right subexpressions: 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+856     Inheritance 
+
+Because  compound  nodes  contain  subexpressions  that  can  themselves  be 
+compound  nodes,  expression  trees  can  grow  to  an  arbitrary  level  of  complexity."
+pointers,"to  objects  instead  of  with  the  objects 
+themselves."
+pointers,"forces  clients  to  assume  more 
+responsibility  for  memory  management,  which  often  makes  using  inheritance 
+more trouble than it is worth."
+pointers,"to  those  values 
+allocated elsewhere? 
+
+10."
+pointers,to Expression objects.
+pointers,"but  also 
+provides  additional  methods  that  are  useful  in  working  with  shapes  on  the 
+screen."
+pointers,.
+pointers,.
+pointers,", where the ++ operator increments the pointer 
+value so that it refers to the next element in an array."
+pointers,.
+pointers,", the idiomatic pattern *it++ means to increment the pointer but to 
+dereference its current value before the increment occurs."
+Pointers,"to functions 
+
+In  the  earliest  days  of  computing,  programs  were  represented  in  a  form  that  kept 
+code and data entirely separate."
+pointers,"to  functions 
+internally but hide the details from the programmer."
+pointers,"to functions and then use 
+those functions as data values in an application."
+pointers,"to functions into its 
+syntax,  it  helps  to  consider  an  example  that  shows  how  this  technique  is  used  in 
+practice."
+pointers,"to  functions 
+are."
+pointers,"to functions 
+
+The only new language feature you need to learn before coding the plot function is 
+the  declaration  syntax  for  the  second  argument,  which  you  know  is  a  pointer  to  a 
+function taking and returning a double."
+pointers,"lies in recognizing that the declaration of a variable mirrors its 
+use and not its structure."
+pointers,"are  limited  in  their  utility  because  they  offer  no  way  to  supply 
+client-supplied data along with the function."
+pointers,",  the  mapAll  functions  for  the  Stanford  collection  classes—and  their 
+counterparts in the Standard Template Library—allow the argument to be a function 
+object  whose  operator()  method  is  overloaded  to  take  the  same  arguments  that 
+you  would  pass  to  a  mapping  function."
+pointers,and  function  objects.
+pointers,or function objects as comparison functions.
+pointers,"as iterators 
+
+Much of the reason that Figure 20-9 is so long is that the RandomAccessIterator 
+level of service requires the definition of so many operators."
+pointers,"offers  another  strategy  for  implementing 
+iterator  for  the  Vector  class."
+pointers,", function objects, the STL <algorithm> library, and techniques 
+for using the functional programming paradigm in C++."
+pointers,.
+pointers,"to functions 
+are legitimate data values."
+pointers,"to functions? 
+
+8."
+Pointers,"in C++ act as iterators at the RandomAccessIterator 
+
+level of service."
+pointers,"to maintain a map of mathematical functions by 
+
+name."
+Dynamic Memory,"Management 
+
+515 
+
+Linked lists  519 
+Freeing memory  523 
+
+12."
+Dynamic Memory,"Management 
+
+You  have  burdened  your  memory  with  exploded  systems  and 
+useless names."
+Dynamic Memory,"Management 
+
+Up to this point in the text, you have seen two mechanisms for assigning memory to 
+variables."
+Dynamic Memory,"Management 
+
+Dynamic arrays 
+
+The new operator also makes it possible to allocate space for an array in the heap, 
+which is called a dynamic array."
+Dynamic Memory,"Management 
+
+To simulate the Beacons of Gondor in C++, you need to define a structure type 
+to represent each of the towers in the chain."
+Dynamic Memory,"Management 
+
+After  the  linked  list  has  been  initialized,  the  main  program  calls  signal  to 
+display the names of the towers."
+Dynamic Memory,"Management 
+
+The delete operator 
+
+The  best  strategy  to  ensure  that  you  don’t  run  out  of  memory  is  to  free  any  heap 
+storage  when  you  are  finished  using  it."
+Dynamic Memory,"Management 
+
+Destructors 
+
+As  you  know  from  the  examples  you  have  already  seen,  C++  classes  typically 
+define one or more constructors that initialize an object."
+Dynamic Memory,"Management 
+
+charstack."
+Dynamic Memory,"Management 
+
+There  is,  however,  another  important  reason  to  keep  the  details  of  the  private 
+section out of the interface listings."
+Dynamic Memory,"Management 
+
+Choosing  Vector<char> as the underlying representation shows just the right 
+instincts."
+Dynamic Memory,"Management 
+
+charstack."
+Dynamic Memory,"Management 
+
+The  next  method  that  bears  at  least  some  mention  is  the  destructor,  if  for  no 
+other reason than the fact that this is the first destructor you’ve seen."
+Dynamic Memory,"Management 
+
+1."
+Dynamic Memory,"Management 
+
+The constructor then returns, leaving the object initialized as shown."
+Dynamic Memory,"Management 
+
+copy  the  old  array  pointer  and  then  allocate  a  new  dynamic  array  with  twice  the 
+original capacity: 
+
+The for loop then copies the characters from the old array into the new one, leaving 
+the following configuration: 
+
+The last statement in the body of expandCapacity is 
+
+delete[] oldArray; 
+
+This  statement  frees  the  old  array  storage  so  that  the  memory  looks  like  this  after 
+expandCapacity returns: 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+12."
+Dynamic Memory,"Management 
+
+It  is  also  good  practice  to  develop  a  separate  test  program  for  each  class  or 
+library interface."
+Dynamic Memory,"Management 
+
+ 12."
+Dynamic Memory,"Management 
+
+Assignment and copy constructors 
+
+In  C++,  you  can  change  the  default  shallow-copying  behavior  by  redefining  two 
+methods."
+Dynamic Memory,"Management 
+
+If  the  process  of  overriding  the  copy  constructor  and  the  assignment  operator 
+gets  too  confusing,  you  do  have  another  option."
+Dynamic Memory,"Management 
+
+values of the characters to which it points."
+Dynamic Memory,"Management 
+
+charstack."
+Dynamic Memory,"Management 
+
+charstack."
+Dynamic Memory,"Management 
+
+F I G U R E   1 2 - 1 4 Const-correct version of the charstack."
+dynamic memory,"is reallocated to create a ""deep copy"" in
+ * which the current object and the source object are independent."
+Dynamic Memory,"Management 
+
+ Summary 
+
+One of the goals of this book is to encourage you to use high-level structures that 
+allow  you  to  think  about  data  in  an  abstract  way  that  is  independent  of  the 
+underlying representation."
+Dynamic Memory,"Management 
+
+ Review questions 
+
+1."
+Dynamic Memory,"Management 
+
+ Exercises 
+
+1."
+Dynamic Memory,"Management 
+
+Heap-stack exercise figures 
+
+Exercises     567 
+
+9."
+Dynamic Memory,"Management 
+
+10."
+dynamic memory,"allocation and inheritance don’t 
+always  work  together  in  C++  as  seamlessly  as  they  do  in  other  languages,  to  the 
+point that it is worth adopting a different approach."
+dynamic memory,allocation.
+algorithm,"335 
+
+Thinking recursively  338 
+
+  Summary  340 
+  Review questions  342 
+  Exercises  344 
+
+8 
+
+Recursive Strategies 
+
+349 
+
+The Towers of Hanoi  350 
+The subset-sum problem  361 
+
+8."
+algorithm,"409 
+
+  Summary  415 
+  Review questions  416 
+  Exercises  417 
+
+10  Algorithmic Analysis 
+
+429 
+
+10."
+algorithm,"452 
+10."
+algorithm,"can be described as follows: 
+
+1."
+algorithm,"is complete, and the answer is y."
+algorithm,"is  considerably  more  efficient  than  any  strategy  you  would  be 
+likely  to  discover  on  your  own,  and  is  still  used  today  in  a  variety  of  practical 
+applications,  including  the  implementation  of  the  cryptographic  protocols  that 
+enable secure communication on the Internet."
+algorithm,"gives the correct 
+result."
+algorithm,"in Elements, Book VII, proposition 2."
+algorithm,"for calculating the sqrt 
+function that cuts in half the time required to calculate a square root."
+algorithm,",  write  a  main  program  that  lists  the  prime 
+numbers between 1 and 100."
+algorithm,and write the necessary code.
+algorithm,"for calculating the greatest common divisor is one 
+of the oldest to be dignified with that term, there are other algorithms that date 
+back  many  centuries."
+algorithm,"for determining the date of Easter that was purely computational in 
+the sense that it relied on arithmetic rather than looking up values in tables."
+algorithm,—translated directly from the German—appears in Figure 2-18.
+algorithm,"in Figure 2-18 only works for years in the 18th 
+and  19th  centuries."
+algorithm,", undertake the necessary research to find a more general approach."
+algorithm,for  finding  all  the  prime  numbers  up  to  some  upper  limit  N.
+algorithm,", you start by writing down a list of the integers between 2 
+and N."
+algorithm,", you will have circled the number 2 and crossed off every multiple 
+of 2, as follows: 
+
+To  complete  the  algorithm,  you  simply  repeat  the  process  by  circling  the 
+first number in the list that is neither crossed off nor circled, and then crossing 
+off its multiples."
+algorithm,is called the sieve of Eratosthenes.
+algorithm,"—presumably  involving  other  structures—that  accomplishes  the 
+task."
+algorithm,"for finding the greatest common divisor, which 
+was originally introduced on page 60."
+algorithm,"335 
+
+ 7."
+algorithm,"When  you  work  with  sequences  of  values  stored  in  a  vector,  one  of  the  common 
+operations consists of searching that vector for a particular element."
+algorithm,", which can be time-consuming if the arrays are large."
+algorithm,.
+algorithm,"—which  appears  in  Figure 7-5—is  also  a  perfect 
+example of the divide-and-conquer strategy."
+algorithm,"for various values of n, as 
+shown in the following sample run: 
+
+7."
+algorithm,", 
+using  the  entire  graphics  window  as  the  initial  canvas."
+algorithm,"so that it lists each unique permutation 
+exactly  once  without  using  sets  to  accomplish  that  task."
+algorithm,"as  the  process  of  repeatedly 
+exploring  paths  until  you  encounter  the  solution,  the  process  appears  to  have  an 
+iterative character."
+algorithm,"for  escaping  from  a  maze,  but  not  everyone 
+trapped  in  a  maze  is  lucky  enough  to  have  a  ball  of  string."
+algorithm,"if,  instead  of  checking  for  marked 
+squares as you consider the possible directions of motion, you go ahead and make 
+the recursive calls on those squares."
+algorithm,"Although  the  recursive  insight  and  the  simple  cases  are  all  you  need  to  solve  the 
+problem  on  a  conceptual  level,  writing  a  complete  program  to  navigate  a  maze 
+requires you to consider a number of implementation details as well."
+algorithm,", which is the focus of this discussion."
+algorithm,"409 
+
+The play method and the mechanics of taking turns, however, are not the most 
+exciting aspects of a game."
+algorithm,"The techniques described in the preceding section work well for simple, completely 
+solvable  games  like  Nim."
+algorithm,"because  the  goal  is  to  find  the  move 
+that minimizes your opponent’s maximum opportunity."
+algorithm,"411 
+
+you and the possible responses from your opponent."
+algorithm,"using pretty 
+much the same structure as in the earlier Nim example."
+algorithm,"must  therefore  include  a 
+provision for cutting off the search at a certain point."
+algorithm,"413 
+
+who won the game and then returning WINNING_POSITION or LOSING_POSITION, 
+as appropriate."
+algorithm,"The minimax algorithm can be implemented using two mutually recursive methods: 
+findBestMove and evaluatePosition, which appear in Figure 9-6 on the next 
+page."
+algorithm,"to cut off computation after a certain number 
+of  moves  as  described  in  the  preceding  section."
+algorithm,.
+algorithm,"? 
+
+2."
+algorithm,"? 
+
+7."
+algorithm,"?  What does its name signify? 
+
+12."
+algorithm,"that does not depend on the details of a particular game? 
+
+13."
+algorithm,.
+algorithm,presented in Figure 9-6.
+algorithm,"to play a perfect game of 
+three-pile  Nim."
+algorithm,"to play a perfect game of 
+
+tic-tac-toe."
+algorithm,"There  are  many  algorithms  you  could  choose  to  sort  a  vector  of  integers  into 
+ascending order."
+algorithm,"goes  through  each  element  position  and  finds  the 
+value  that  should  occupy  that  position  in  the  sorted  vector."
+algorithm,"exchanges  it  with  the  value  that  previously 
+occupied the desired position to ensure that no elements are lost."
+algorithm,"finds  the  smallest  element  and  swaps  it  with  the  first  vector 
+position."
+algorithm,"continues this strategy until all 
+positions in the vector are correctly ordered."
+algorithm,"finds the smallest element between positions 1 
+and  7,  which  turns  out  to  be  the  25  in  position  1."
+algorithm,"performs  a  swap  operation  to 
+move the next smallest value into its appropriate final position."
+algorithm,"as  a  strategy  for  sorting?    To  answer 
+this question, it helps to collect empirical data about how long it takes the computer 
+to sort a vector of various sizes."
+algorithm,"completes  its  work  in  a 
+couple of microseconds."
+algorithm,"requires 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+10."
+algorithm,has to do on each cycle of the outer loop.
+algorithm,"must consider all N elements as it searches 
+for  the  smallest  value."
+algorithm,performs the same basic steps but looks at one less element each time.
+algorithm,"is presumably related to the 
+amount of work the algorithm needs to do, the values in this table should be roughly 
+proportional to the observed execution time of the algorithm, which turns out to be 
+true."
+algorithm,requires  1.
+algorithm,"has  to  perform  50,005,000 
+operations  in  its  innermost  loop."
+algorithm,"by  a  factor  of  four,  which  means  that 
+the running time grows more quickly than the number of elements in the vector."
+algorithm,responds  to  changes  in  problem  size.
+algorithm,"as  N  becomes  large  is  called  the 
+computational complexity  of  that  algorithm."
+algorithm,.
+algorithm,", the goal is to provide a qualitative insight as to how changes in N affect 
+the  algorithmic  performance  as  N  becomes  large."
+algorithm,in the simplest possible form.
+algorithm,",  and  you  can  ignore  the  other 
+terms in the formula entirely."
+algorithm,"that you executed 
+on your machine would run twice as fast as before for every value of N."
+algorithm,"for a vector of N elements 
+is proportional to 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+10."
+algorithm,.
+algorithm,"depends not only on the size of the 
+problem but also on the specific characteristics of the data."
+algorithm,in the worst possible case.
+algorithm,"will  be  at  least  as  good  as  your  analysis 
+indicates."
+algorithm,"performs  if  you  average  its  behavior  over  all 
+possible sets of input data."
+algorithm,"” later in this chapter, the average-case and 
+worst-case  performances  of  an  algorithm  sometimes  differ  in  qualitative  ways, 
+which  means  that  in  practice  it  is  often  important  to  take  both  performance 
+characteristics into consideration."
+algorithm,",  which  is  usually  difficult  to 
+compute."
+algorithm,that is more efficient for large vectors.
+algorithm,"is clearly not up to the task, because the running time 
+increases  in  proportion  to  the  square  of  the  input  size."
+algorithm,",  you  need  to  adopt  a  qualitatively  different 
+approach."
+algorithm,"to  sort  each  of  those  pieces?    Because  selection  sort  is 
+quadratic, each of the smaller vectors requires one quarter of the original time."
+algorithm,recursively to sort each half.
+algorithm,"The merge operation, combined with recursive decomposition, gives rise to a new 
+sorting algorithm called merge sort, which you can implement in a straightforward 
+way."
+algorithm,"can be outlined as follows: 
+
+1."
+algorithm,", shown in Figure 10-3, divides neatly into 
+two  functions:  sort  and  merge."
+algorithm,.
+algorithm,"divides 
+the original vector into two smaller ones, v1 and v2."
+algorithm,in terms of its computational complexity.
+algorithm,"requires more than two 
+
+ 
+ 
+ 
+ 
+ 
+ 
+10."
+algorithm,will therefore be useful over a much larger range of vector sizes.
+algorithm,in that class.
+algorithm,"that  requires  O (log  N ) 
+time  and  another  that  requires  O (N )  time,  the  first  will  always  outperform  the 
+second  as  N  grows  large."
+algorithm,"to  do  better 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+450     Algorithmic Analysis 
+
+against  one  that  has  a  lower  computational  complexity."
+algorithm,"exists  are 
+regarded as intractable."
+algorithm,for  this  problem  exists.
+algorithm,"that  makes  these 
+problems tractable."
+algorithm,"Even though the merge sort algorithm presented earlier in this chapter performs well 
+in  theory  and  has  a  worst-case  complexity  of  O (N  log  N ),  it  is  not  used  much  in 
+practice."
+algorithm,"called  Quicksort,  developed  by  the  British  computer  scientist  C."
+algorithm,", the original vector is divided into two halves, each of which is 
+sorted  independently."
+algorithm,"453 
+
+For  example,  suppose  that  the  original  vector  you  wanted  to  sort  was  the 
+
+following one, presented earlier in the discussion of merge sort: 
+
+Half  of  these  elements  are  larger  than  50  and  half  are  smaller,  so  it  might  make 
+sense  to  define  small  in  this  case  as  being  less  than  50  and  large  as  being  50  or 
+more."
+algorithm,"would divide the vector in half each time and 
+end up demonstrating the same qualitative characteristics as merge sort."
+algorithm,"selects  some  existing  element  in  the  vector  and  uses  that 
+value  as  the  dividing  line  between  the  small  and  large  elements."
+algorithm,"is a vector of size 0 
+or 1, which must already be sorted."
+algorithm,"consists of the following steps: 
+
+1."
+algorithm,"uses  a  divide-and-conquer  strategy,  these  smaller  vectors  can  be 
+sorted using a recursive application of Quicksort."
+algorithm,", the goal is to rearrange the elements 
+so that they are divided into three classes: those that are smaller than the pivot; the 
+pivot element itself, which is situated at the boundary position; and those elements 
+that are at least as large as the pivot."
+algorithm,",  you  can  tell  immediately  whether  a  value  is 
+large  or  small  relative  to  that  pivot."
+algorithm,"proceeds as follows: 
+
+1."
+algorithm,"455 
+
+2."
+algorithm,is shown in Figure 10-9.
+algorithm,"457 
+
+Analyzing the performance of Quicksort 
+
+A  head-to-head  comparison  of  the  actual  running  times  for  the  merge  sort  and 
+Quicksort algorithms appears in Figure 10-10."
+algorithm,"chooses  a  pivot  that  is  close  to  the 
+median  value  in  the  vector,  the  partition  step  will  divide  the  vector  into  roughly 
+equal parts."
+algorithm,"chooses its pivot value poorly, one of the two partial 
+vectors  may  be  much  larger  than  the  other,  which  defeats  the  purpose  of  the 
+divide-and-conquer strategy."
+algorithm,"in this 
+way."
+algorithm,"spends  more  time  choosing  the  pivot  than  it  gets  back  from  making  a 
+good  choice,  you  will  end  up  slowing  down  the  implementation  rather  than 
+speeding it up."
+algorithm,"that  has  better  computational  properties  can  often  reduce  the  time 
+required  to  solve  a  problem  by  many  orders  of  magnitude."
+algorithm,"outperforms selection sort by 
+a  factor  of  almost  250;  as  the  vector  sizes  get  larger,  the  difference  in  efficiency 
+between these algorithms will become even more pronounced."
+algorithm,"exists  are  considered  intractable  because  solving 
+such  problems  requires  prohibitive  amounts  of  time,  even  for  problems  of 
+relatively modest size."
+algorithm,", developed by Tony Hoare, even though its 
+worst-case complexity is O (N 2)."
+algorithm,.
+algorithm,"to sort a vector of 250 
+values and find that it takes 50 milliseconds to complete the operation."
+algorithm,"to sort 
+a vector of 1000 values on the same machine? 
+
+5."
+algorithm,"mean? 
+
+20."
+algorithm,", what conditions must be true at the conclusion of 
+the partitioning step? 
+
+22."
+algorithm,.
+algorithm,"requires  no 
+work, because a vector of one element is always sorted: 
+
+On the next cycle, you need to put 25 into the correct position with respect to 
+the elements you have already seen, which means that you need to exchange 
+the 56 and 25 to reach the following configuration: 
+
+On the third cycle, you need to find where the value 37 should go."
+algorithm,"is  important  in  practice  because  it  runs  in 
+linear  time  if  the  vector  is  already  more  or  less  in  the  correct  order."
+algorithm,.
+algorithm,"to sort arrays with 
+this  restriction."
+algorithm,"and  evaluate  its  performance  by 
+taking  empirical  measurements  using  the  strategy  outlined  in  exercise  3."
+algorithm,is so bad for small values of N.
+algorithm,"simply 
+goes through each element of the vector in turn until it finds the desired one or 
+determines that the key does not appear."
+algorithm,", which 
+is  implemented  for  string  vectors  in  Figure  7-5,  uses  a  divide-and-conquer 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Exercises      469 
+
+strategy by checking the middle element of the vector and then deciding which 
+half of the remaining elements to search."
+algorithm,"so  that,  instead  of 
+picking  the  first  element  in  the  vector  as  the  pivot,  the  partition  function 
+chooses the median of the first, middle, and last elements."
+algorithm,"presented in exercise 2 on 
+the entire vector to fix any remaining problems."
+algorithm,",  not 
+implementing it."
+algorithm,"so  that  your  implementation  adheres  to  the  same  set  of 
+conditions as the solution to the preceding exercise: 
+
+• 
+
+• 
+
+It must run in O (N ) time."
+algorithm,"as follows: 
+
+void sort(int array[], int n) { 
+   for (int lh = 0; lh < n; lh++) { 
+      int rh = lh; 
+      for (int i = lh + 1; i < n; i++) { 
+         if (array[i] < array[rh]) rh = i; 
+      } 
+      swap(array[lh], array[rh]); 
+   } 
+} 
+
+This  function  correctly  sorts  the  array  passed  by  the  caller  because  the  function 
+initializes  the  array  parameter  by  copying  the  address  of  the  calling  argument."
+algorithm,"from  Figure 10-3  so 
+that it sorts an array rather than a vector."
+algorithm,"on page 499, your function should use the prototype 
+
+void sort(int array[], int n) 
+
+8."
+algorithm,"is traditionally expressed in terms of its 
+computational  complexity,  which  examines  how  running  time  varies  as  a  function 
+of the size of the problem."
+algorithm,performs in the worst case.
+algorithm,",  you  can  reduce  the  running  time  of  a 
+program substantially, particularly if the new algorithm is in a different complexity 
+class."
+algorithm,", but waste space in doing so."
+algorithm,"> (which you will learn more about 
+in Chapter 20) includes a template function swap(x, y) that interchanges the 
+values  of  x  and  y."
+algorithm,"as  it  appears  in 
+Figure 10-9."
+algorithm,"means  that  the  get  and  put 
+methods both require O(N) time."
+algorithm,", which was introduced in 
+section 7."
+algorithm,in  a  real  dictionary  of  any  significant  size.
+algorithm,", which consists 
+of opening the dictionary exactly at the middle, deciding whether the word you’re 
+searching for appears in the first or second half, and then repeatedly applying this 
+algorithm  to  smaller  and  smaller  parts  of  the  dictionary."
+algorithm,is not affected by the collision rate.
+algorithm,"is engineered for a particular application in which 
+the number of keys is known in advance, it is impossible to choose a fixed value for 
+nBuckets that works well for all clients."
+algorithm,"for implementing hash tables imposes several requirements on the 
+
+type used to represent keys, as follows: 
+
+•  The key type must be assignable so that the code can store copies of the keys in 
+
+the cells."
+algorithm,"is  to  allocate  a  dynamic 
+array of buckets, each of which contains a linked list of the keys that hash to that 
+bucket."
+algorithm,"made  other  options  seem  far  less  attractive—was  to  store  the 
+key-value  pairs  in  a  vector."
+algorithm,", which 
+was introduced in Chapter 7."
+algorithm,in  any  efficient  way.
+algorithm,"requires you to find the middle of not only the original list but its sublists 
+as well."
+algorithm,to  find  a  particular  node.
+algorithm,"in 
+its  recursive  form."
+algorithm,", as follows: 
+
+BSTNode *findNode(BSTNode *t, const string & key) { 
+   if (t == NULL) return NULL; 
+   if (key == t->key) return t; 
+   if (key < t->key) { 
+      return findNode(t->left, key); 
+   } else { 
+      return findNode(t->right, key); 
+   } 
+} 
+
+If the tree is empty, the desired node is clearly not there, and findNode returns the 
+value NULL as a sentinel indicating that the key cannot be found."
+algorithm,", however, is proportional to the height of the tree, which means that the 
+structure of the tree can have a significant impact on the algorithmic performance."
+algorithm,"used  to  implement  findNode  achieves  its  ideal 
+performance only if the left and right subtrees have roughly the same height at each 
+level  of  the  tree."
+algorithm,"is 
+therefore  superior  to  one  based  on  unbalanced  trees,  even  though  the  array 
+implementation is considerably easier to write."
+algorithm,"has been largely replaced 
+in  practice  by  more  sophisticated  techniques,  it  has  the  advantage  of  being 
+considerably  easier  to  explain."
+algorithm,a good model for more modern techniques.
+algorithm,"in 
+detail, it helps to follow through the process of inserting nodes into a binary search 
+tree to see what can go wrong and, if possible, what steps you can take to fix any 
+problems  that  arise."
+algorithm,"associates an 
+integer  with  each  node,  which  is  simply  the  height  of  the  right  subtree  minus  the 
+height of the left subtree."
+algorithm,", adding Li results in 
+the following configuration: 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+710     Trees 
+
+Here, the root node is out of balance because its right subtree has height 2 and its 
+left subtree has height 0, which differ by more than one."
+algorithm,": 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+16."
+algorithm,"Although  the  process  involves  quite  a  few details,  implementing  insertNode  for 
+AVL  trees  is  not  as  difficult  as  you  might  imagine."
+algorithm,"shown in Figure 16-6 ensures that the binary 
+search tree remains in balance as new nodes are added."
+algorithm,", 
+which  makes  it  possible  to  find  individual  keys  more  efficiently."
+algorithm,"described 
+in this chapter, you can keep a tree in balance as new nodes are added."
+algorithm,"in the text offers a strategy for inserting a 
+node but does not cover the symmetric process of removing a node, which also 
+requires  rebalancing  the  tree."
+algorithm,is too aggressive.
+algorithm,"spends  quite  a  bit  of  time  performing  rotation 
+operations to correct imbalances that occur as new nodes are inserted."
+algorithm,",  it  is 
+sufficient  to  guarantee  that  the  operations  of  finding  and  inserting  new  nodes 
+both run in logarithmic time."
+algorithm,"that allows you to add new nodes while maintaining the conditions that define 
+red-black trees."
+algorithm,"has much in common with the AVL algorithm 
+and uses the same rotation operations."
+algorithm,with no balancing.
+algorithm,from  section  18.
+algorithm,"that always 
+runs in O(N log N) time."
+algorithm,", which is called heapsort, all you do 
+is  enter  each  value  into  a  heap  and  then  take  the  items  out  of  the  heap  from 
+smallest to largest."
+algorithm,"process the Node and Arc pointers in 
+the order of the memory addresses at which those structures appear."
+algorithm,", but the process of performing that operation—whatever it 
+is—is  called  visiting  the  node."
+algorithm,"does  not  visit  the  same  node  many  times  requires  additional 
+bookkeeping to keep track of which nodes have already been visited."
+algorithm,"proceeds, each of these circles will 
+be marked with a number recording the order in which that node was processed."
+algorithm,"is to explore a single path 
+in  the  graph  as  far  as  possible  before  backtracking  to  complete  the  exploration  of 
+paths  at  higher  levels."
+algorithm,"explores this path as far as it can, ending up in the 
+following configuration: 
+
+From here, the process will back up all the way to the Dallas node, from which it can 
+pick up Los Angeles: 
+
+If you think about the depth-first algorithm in relation to other algorithms you’ve 
+seen,  you  will  realize  that  its  operation  is  exactly  the  same  as  that  of  the 
+maze-solving  algorithm  in  Chapter 9."
+algorithm,",  it  was  also  necessary  to 
+mark  squares  along  the  path  to  avoid  cycling  forever  around  a  loop  in  the  maze."
+algorithm,"gets  around  this  problem  by  visiting  each 
+node  in  an  order  determined  by  how  close  it  is  to  the  starting  node,  measured  in 
+terms  of  the  number  of  arcs  along  the  shortest  possible  path."
+algorithm,", suppose that you wanted to apply 
+a breadth-first traversal to the airline graph, again starting at the San Francisco node."
+algorithm,"simply visits the starting node: 
+
+The next phase visits the nodes that are one hop away, as follows: 
+
+From here, the algorithm goes on to explore the nodes that are two hops away: 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+788     Graphs 
+
+In the final phase, the algorithm completes its exploration of the graph by visiting 
+the nodes that are three hops from the start: 
+
+The  easiest  way  to  implement  the  breadth-first  algorithm  is  to  use  a  queue  of 
+unprocessed nodes."
+algorithm,"to find 
+a path with the shortest overall distance, the smallest number of hops, or the least 
+travel time."
+algorithm,.
+algorithm,"for finding shortest paths was discovered by 
+Edsger  W."
+algorithm,"for  finding  shortest  paths  is  a 
+particular example of a class of algorithms called greedy algorithms, in which you 
+find  the  overall  answer  by  making  a  series  of  locally  optimal  decisions."
+algorithm,"for finding the shortest path—or, 
+more generally, the path whose arcs have the minimum total cost—can be expressed 
+as follows: explore all paths from the starting node in order of increasing total path 
+cost until you encounter a path that takes you to your destination."
+algorithm,can be implemented as shown in Figure 18-11.
+algorithm,",  it  is  useful  to 
+
+keep the following points in mind: 
+
+•  Paths are explored in order of the total distance rather than the number of hops."
+algorithm,finishes its operation.
+algorithm,"is  executed  only  when  the  distance  to  that  node  is  fixed,  which 
+happens  only  once  for  each  node."
+algorithm,"is  beyond  the  scope  of  this  text,  but  the  running  time  is 
+O(M log N), where N is the number of nodes and M is either N or the number of 
+arcs, whichever is larger."
+algorithm,"to  rank  the  importance  of  each  page  is  the  primary 
+challenge in designing an effective search engine."
+algorithm,"The  best-known  strategy  for  sorting  web  pages  is  Google’s  PageRank algorithm, 
+which assigns each page a value that reflects the importance of that page based on 
+the structure of the web graph as a whole."
+algorithm,"together  with  Google  cofounder  Sergey  Brin  while  both  were  graduate 
+students at Stanford University."
+algorithm,"is  simply  that  a  page 
+becomes more important if other pages link to it."
+algorithm,"therefore proceeds as 
+a series of successive approximations."
+algorithm,"is  that  the  final 
+ranking of each page represents the probability of reaching that page by following 
+links  on  the  web  at  random."
+algorithm,"is to assign each page an initial ranking 
+that  is  simply  the  probability  of  choosing  that  page  at  random  out  of  the  entire 
+
+ 
+ 
+ 
+ 
+ 
+ 
+810     Graphs 
+
+collection  of  pages."
+algorithm,"updates  the  probabilities 
+assigned to each of the pages by computing the likelihood that the user reaches that 
+page  after  following  a  random  link  from  the  end  of  the  preceding  cycle."
+algorithm,"replaces the probabilities for the pages 
+A, B, C, D, and E with the values A!, B!, C!, D!, and E! computed by these formulae."
+algorithm,"are  shown  in 
+Figure 18-14."
+algorithm,"chooses one arc from the starting 
+node  and  then  recursively  explores  all  paths  beginning  with  that  arc  until  no 
+additional nodes remain."
+algorithm,"return to explore 
+other arcs from the original node."
+algorithm,"explores nodes in 
+order of their distance from the original node, measured in terms of the number 
+of  arcs  along  the  shortest  path."
+algorithm,", which is vastly more efficient than the exponential strategy 
+of comparing the cost of all possible paths."
+algorithm,"is an example 
+of a larger class of algorithms called greedy algorithms, which select the locally 
+best option at any decision point."
+algorithm,"? 
+
+22."
+algorithm,for finding minimum-cost paths.
+algorithm,shown in Figure 18-8.
+algorithm,"to 
+
+find the shortest path from Portland to Atlanta."
+algorithm,", 
+you simply push the starting node on the stack."
+algorithm,and the total running time necessary to visit each of the nodes.
+algorithm,", there is no surrounding infrastructure 
+to  turn  that  algorithm  into  an  application."
+algorithm,to find and display the minimum path.
+algorithm,"finding  minimum-cost  paths  has 
+considerable  practical  importance,  there  are  other  graph  algorithms  that  have 
+comparable commercial significance."
+algorithm,", all you do is consider the arcs in the graph in 
+order  of  increasing  cost."
+algorithm,to find the minimum spanning tree.
+algorithm,—the filled-in nodes constitute a dominating set for the graph.
+algorithm,"usually  finds  a  relatively  small 
+dominating set, even though it does not always produce the optimal result: 
+
+1."
+algorithm,to find a small dominating set for the graph g.
+algorithm,"then  proceeds  by  letting  each  node  forward  its 
+routing array to its neighbors."
+algorithm,on a network of nodes.
+algorithm,"must  include  some 
+mechanism for determining the order in which operators are applied."
+algorithm,.
+algorithm,"in 
+a way that would allow that code to be shared by many different games."
+algorithm,itself.
+algorithm,required that type to be named Move.
+algorithm,"; data structures allow you to organize the information to 
+which  those  algorithms  are  applied."
+algorithm,"library 
+
+Although iterators are certainly useful for their original purpose of stepping through 
+the elements of a collection, they have even greater importance in C++ because so 
+many of the functions in the Standard Template Library take iterators as parameters."
+algorithm,.
+algorithm,"library      905 
+
+Useful functions in the <algorithm> interface 
+
+The  sort  function  in  the  Standard  Template  Library  is  only  one  of  many  useful 
+functions  exported  by  the  <algorithm>  interface."
+algorithm,"> interface as building blocks for 
+more sophisticated operations."
+algorithm,"from Chapter 10 using several high-level functions from 
+the <algorithm> library as tools."
+algorithm,"> table 
+
+ 
+20."
+algorithm,> library.
+algorithm,> library do—either a function pointer or a function object.
+algorithm,">  library  that  involve  sorting, 
+which  include  sort,  merge,  inplace_merge,  binary_search,  min_element, 
+and  max_element  from  Table 20-3,  take  an  optional  functional  parameter  that 
+defines  the  ordering."
+algorithm,> interface.
+algorithm,"> library, and techniques 
+for using the functional programming paradigm in C++."
+algorithm,">  library  includes  implementations  of  several  common 
+algorithms that operate on collections."
+algorithm,"> library and for collection classes like Map and 
+Set, which need to determine the relative order of elements."
+algorithm,"> library? 
+
+15."
+algorithm,">  library,  which  returns  an  iterator  pointing  to  the 
+largest element in the specified iterator range."
+algorithm,> library.
+algorithm,", 58 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1026     Index 
+
+algorithm library, 905 
+Alice in Wonderland, 2 
+allocated size, 498 
+allocation, 500 
+alphanumeric, 137 
+ambiguity, 846 
+amortized analysis, 559 
+anagram, 364 
+analysis of algorithms, 430 
+ancestor, 691 
+application programming interface, 832 
+arc, 768 
+area code, 258 
+argument, 57 
+Ariadne, 390 
+ARPANET, 18, 821 
+array, 494 
+array capacity, 533 
+array selection, 496 
+array-based editor, 579 
+ASCII, 22 
+assignment operator, 30 
+assignment statement, 31 
+associative array, 232 
+associativity, 28 
+astronomical unit, 345 
+at function, 130 
+AT&T Bell Laboratories, 5 
+atan function, 61 
+atan2 function, 61 
+atomic type, 19 
+automatic allocation, 516 
+Average, 438 
+average-case complexity, 440 
+AVL tree, 708 
+axis of rotation, 710 
+
+Bachmann, Paul, 435 
+backtracking algorithm, 390 
+Backus, John, 4, 862 
+Backus-Naur Form (BNF), 862 
+balance factor, 709 
+
+balanced tree, 706 
+base type, 198, 485 
+BASIC language, 884 
+basis, 460 
+Beacons of Gondor, 519 
+begin method, 887 
+Bernstein, Daniel J."
+algorithm,", 118 
+edge, 768 
+editor, 571 
+EditorBuffer class, 573 
+effective size, 498 
+Einstein, Albert, 88, 120 
+Eliot, George, 191, 206, 663 
+Eliot, T."
+algorithm,", 735 
+height, 691 
+Hellman, Lillian, 89 
+HelloWorld."
+algorithm,", 445 
+merging, 444 
+message, 129 
+method, 129 
+metric, 339 
+min function, 906 
+min_element function, 906 
+Minesweeper game, 252 
+minimax algorithm, 409 
+minimum spanning tree, 819 
+Minotaur, 390 
+minus class, 908 
+mnemonic, 381 
+model, 219 
+model-view-controller pattern, 570 
+modular arithmetic, 639 
+modulus class, 908 
+Mondrian, Piet, 368 
+Mondrian."
+algorithm,", 809 
+palindrome, 141, 332 
+paradigm shift, 4 
+parameter, 61 
+parameterized classes, 198 
+parent, 691 
+parse tree, 846 
+parser generator, 863 
+parsing, 841 
+parsing an expression, 861 
+partially ordered tree, 719 
+partition function, 906 
+partitioning, 454 
+Parville, Henri de, 350 
+Pascal’s Triangle, 347 
+Pascal, Blaise, 347 
+path, 771 
+pattern, 134 
+peek method, 212, 218 
+
+peg solitaire, 423 
+perfect number, 117 
+permutation, 119, 364 
+persistent property, 161 
+PI constant, 17, 83 
+Picasso, Pablo, 368 
+Pig Latin, 142 
+pigeonhole principle, 472 
+PigLatin."
+algorithm,", 451 
+pop method, 212 
+portability, 20 
+postorder traversal, 704 
+PostScript, 255 
+pow function, 61 
+PowersOfTwo."
+algorithm,", 431 
+sender, 129 
+sentinel, 42 
+set, 232, 738 
+Set class, 232 
+set difference, 740 
+set equality, 740 
+set method, 200, 210 
+set."

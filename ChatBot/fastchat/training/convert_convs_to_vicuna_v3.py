@@ -14,10 +14,9 @@ def mean_pooling(model_output, attention_mask):
                                                                               min=1e-9)
 
 def get_relevant_para(prompt):
-    dataframe = pd.read_csv('../../book_index_retrieval/openstax_biology_2e.csv')
-    dataframe = dataframe[dataframe['p_id'].str.startswith('fs-').fillna(False)]
-    paragraphs = dataframe['p_content'].tolist()
-    index = faiss.read_index('../../book_index_retrieval/os_bio_2e_index.faiss')
+    dataframe = pd.read_csv('/Users/andrewlanpouthakoun/Library/Mobile Documents/com~apple~CloudDocs/Stanford/Quizzem/Training/definitions_spreadsheet.csv')
+    paragraphs = dataframe['Definition'].tolist()
+    index = faiss.read_index('/Users/andrewlanpouthakoun/Library/Mobile Documents/com~apple~CloudDocs/Stanford/Quizzem/ChatBot/book_index_retrieval/paragraph_index.faiss')
 
     encoded_query = tokenizer(prompt, padding=True, truncation=True, return_tensors='pt')
     with torch.no_grad():
